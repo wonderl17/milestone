@@ -7,7 +7,12 @@ interface NodeData {
 }
 
 const mockData: NodeData[] = [
-  { id: 1, content: "新年开始，写下第一篇博客", date: "2024-01-01" },
+  {
+    id: 1,
+    content:
+      "新年开始，写下第一篇博客新年开始，写下第一篇博客新年开始，写下第一篇博客新年开始，写下第一篇博客新年开始，写下第一篇博客",
+    date: "2024-01-01",
+  },
   {
     id: 2,
     content: "新年开始，写下第一篇博客",
@@ -46,9 +51,14 @@ const MileStone = async () => {
         <ul className="timeline timeline-vertical">
           {milestoneData.map((node, index) => {
             return (
-              <li key={node.id} className="h-[100px]">
+              <li
+                key={node.id}
+                className="h-[100px] grid-cols-[minmax(0,0.25fr)_auto_minmax(0,1fr)]"
+              >
                 {index ? <hr /> : ""}
-                <div className="timeline-start">{format(node.date, "M月d日")}</div>
+                <div className="timeline-start">
+                  {format(node.date, "M月d日")}
+                </div>
                 <div className="timeline-middle">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -63,7 +73,7 @@ const MileStone = async () => {
                     />
                   </svg>
                 </div>
-                <div className="timeline-end timeline-box">{node.content}</div>
+                <div className="timeline-end timeline-box ml-5">{node.content}</div>
                 {index !== milestoneData.length - 1 ? <hr /> : ""}
               </li>
             );
